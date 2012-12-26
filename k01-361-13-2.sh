@@ -1,7 +1,6 @@
 #!/bin/bash
 clear
 echo 'Программа для git разработчика'
-echo 'Скрипт облегчает использование git'
 echo 'Разработчик: Пивоваров Александр'
 echo 'Начать выполнение? (y/n): '
 while [ true ];	do
@@ -24,12 +23,6 @@ while [ true ];	do
 			echo 'Введите текст для commit'
 			read comm
 			git commit -m "$comm"
-			echo "Введите имя репозитория"
-			read rep
-			echo "Введите логин на GitHub"
-			read log
-			git remote add origin https://github.com/$log/$rep.git
-			git push -u origin master
 		elif [ $action = 'add' ]
 			then
 			clear
@@ -74,15 +67,8 @@ while [ true ];	do
 				git init
 			fi
 			git add $name
-			echo "Введите имя репозитория"
-			read rep
-			echo "Введите логин на GitHub"
-			read log
-			git commit -m 'commit'
-			git remote add origin https://github.com/$log/$rep.git
-			git push -u origin master
 		fi
-		echo 'Повторить? y/n: '
+		echo 'Передти к выбору действия? (y/n): '
 	elif [ $choice = 'n' ]
 		then
 		echo 'Выполнение программы завершено'
@@ -91,7 +77,7 @@ while [ true ];	do
 		exit
 	elif ! [ $choice = 'y' -o $choice = 'n' ]
 		then
-		echo 'Ошибка ввода. Введите y/n: '
+		echo 'Ошибка ввода. Введите y/n? (y/n): '
 	fi
 done
 echo 'Разработчик: Пивоваров Александр'
